@@ -142,7 +142,7 @@ class GPTTransformer(nn.Module):
             
             probabilities = F.softmax(output, dim = -1)
             #Pick the most likely token to be picked
-            next_token = F.multinomial(probabilities, num_samples = 1)
+            next_token = torch.multinomial(probabilities, num_samples = 1)
 
             tokens = torch.cat((tokens, next_token), dim = 1)
         return tokens
