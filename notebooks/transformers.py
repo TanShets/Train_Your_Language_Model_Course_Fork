@@ -126,7 +126,7 @@ class GPTTransformer(nn.Module):
         else:
             B, T, C = output.shape
             output = output.view(B * T, C)
-            ideal_value = ideal_value.view(B * T, C)
+            ideal_value = ideal_value.view(B * T)
 
             loss = F.cross_entropy(output, ideal_value)
         
